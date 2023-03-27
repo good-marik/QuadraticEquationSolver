@@ -21,13 +21,19 @@ public class NummericPanel extends JPanel {
     private JTextField fieldX2;
     private JLabel statusLabel;
     private GraphicPanel graphicPanel;
+    private ColorScheme colorScheme;
 
-    public NummericPanel(IModel model, GraphicPanel graphicPanel) {
+    public NummericPanel(IModel model, GraphicPanel graphicPanel, ColorScheme colorScheme) {
         this.model = model;
         this.graphicPanel = graphicPanel;
+        this.colorScheme = colorScheme;
         this.setLayout(new BorderLayout());
+        
+        System.out.println(this.getBackground());
+        
 //        this.setBackground(Color.RED);
-//        this.setBorder(BorderFactory.createLineBorder(Color.WHITE, 2));
+//        setBorder(BorderFactory.createLineBorder(colorScheme.getBorderColor(), 3));
+        
         JLabel labelEq = new JLabel("ax^2 + bx + c = 0");
         buttonSolve = new JButton("solve!");
         buttonSolve.addActionListener(new ActionListener() {

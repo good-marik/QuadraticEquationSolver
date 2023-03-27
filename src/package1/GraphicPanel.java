@@ -26,10 +26,6 @@ public class GraphicPanel extends JPanel {
     private static final int BUTTONOFFSETY3 = BUTTONOFFSETY2 + 35;
     private static final double ZOOMFACTORMULTIPLIER = 1.5;
     private int yLabelOffset = 12;
-    private Color backgroundColor = Color.BLACK;
-    private Color coordinateSystemColor = Color.WHITE;
-    private Color graphicColor = Color.CYAN;
-    private Color rootCycleColor = new Color(255, 255, 0, 200); // yellow, partially transparent
     private int graphicLineWidth = 2;
     private IModel model;
     private double xCenter;
@@ -49,11 +45,11 @@ public class GraphicPanel extends JPanel {
     private JButton zoomReset;
     private boolean mouseIn;
     private Point lastMousePosition;
-
-    public GraphicPanel(IModel model) {
+    private ColorScheme colorScheme;
+    
+    public GraphicPanel(IModel model, ColorScheme colorScheme) {
         this.model = model;
-        setBackground(backgroundColor);
-        this.setBorder(BorderFactory.createLineBorder(Color.WHITE, 1));
+        this.colorScheme = colorScheme;
         this.setLayout(null);
         font = new Font(null, Font.PLAIN, FONTSIZE);
         metrics = getFontMetrics(font);
@@ -142,11 +138,13 @@ public class GraphicPanel extends JPanel {
 
     @Override
     public void paintComponent(Graphics g) {
+        setBackground(colorScheme.getBackgroundColor());
+        setBorder(BorderFactory.createLineBorder(colorScheme.getBorderColor(), 1));
         Graphics2D g2 = (Graphics2D) g;
         super.paintComponent(g2);
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         if (model.rootsExist()) {
-            g2.setColor(coordinateSystemColor);
+            g2.setColor(colorScheme.getCoordinateSystemColor());
             initializeParametersForTransformations();
             drawXAxis(g2);
             drawYAxis(g2);
@@ -158,7 +156,7 @@ public class GraphicPanel extends JPanel {
     }
 
     private void drawRoots(Graphics2D g2) {
-        g2.setColor(rootCycleColor);
+        g2.setColor(colorScheme.getRootCycleColor());
         g2.setStroke(new BasicStroke(graphicLineWidth));
         int x = getPanelXCoordinate(model.getValue(4)) - ROOTCYCLEDIAMETER / 2;
         int y = getPanelYCoordinate(0.0) - ROOTCYCLEDIAMETER / 2;
@@ -299,7 +297,7 @@ public class GraphicPanel extends JPanel {
             double y = model.getValue(0) * x * x + model.getValue(1) * x + model.getValue(2);
             parabola.add(new Point(getPanelXCoordinate(x), getPanelYCoordinate(y)));
         }
-        g2.setColor(graphicColor);
+        g2.setColor(colorScheme.getGraphicColor());
         g2.setStroke(new BasicStroke(graphicLineWidth));
         for (Point point : parabola) {
             if (point.x < OFFSET || point.x > (getWidth() - OFFSET) || point.y < OFFSET
