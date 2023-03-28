@@ -33,7 +33,7 @@ public class ColorScheme {
         case 1:
             background = Color.WHITE;
             coordinateSystem = Color.BLACK;
-            graphic = Color.BLUE;
+            graphic = new Color(0,162,0);
             rootCycle = new Color(255, 0, 0, 200); // red, partially transparent
             border = Color.BLACK;
             break;
@@ -41,8 +41,8 @@ public class ColorScheme {
 //            background = new Color(238, 238, 238);
             background = new Color(218, 218, 218);
             coordinateSystem = Color.BLACK;
-            graphic = Color.YELLOW;
-            rootCycle = new Color(0, 0, 255, 200); // cyan, partially transparent
+            graphic = new Color(51, 187, 255);
+            rootCycle = Color.RED; // cyan, partially transparent
             border = Color.BLACK;
             break;
         default:
