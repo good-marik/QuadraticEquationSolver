@@ -28,12 +28,9 @@ public class NummericPanel extends JPanel {
         this.graphicPanel = graphicPanel;
         this.colorScheme = colorScheme;
         this.setLayout(new BorderLayout());
-        
-        System.out.println(this.getBackground());
-        
+//        System.out.println(this.getBackground());
 //        this.setBackground(Color.RED);
 //        setBorder(BorderFactory.createLineBorder(colorScheme.getBorderColor(), 3));
-        
         JLabel labelEq = new JLabel("ax^2 + bx + c = 0");
         buttonSolve = new JButton("solve!");
         buttonSolve.addActionListener(new ActionListener() {
@@ -42,7 +39,6 @@ public class NummericPanel extends JPanel {
                 buttonPressedInit();
             }
         });
-//    JFrame fr = (JFrame) SwingUtilities.getWindowAncestor(this);
         JPanel panel1 = new JPanel();
 //        panel1.setBackground(Color.GREEN);
         panel1.setMaximumSize(new Dimension(190, 35));
@@ -147,19 +143,15 @@ public class NummericPanel extends JPanel {
         JLabel labelA = new JLabel("a =");
         JLabel labelB = new JLabel("b =");
         JLabel labelC = new JLabel("c =");
-        
 //        fieldA = new JTextField("", NUMBEROFCOLUMNS);
 //        fieldB = new JTextField("", NUMBEROFCOLUMNS);
 //        fieldC = new JTextField("", NUMBEROFCOLUMNS);
-        
         fieldA = new JTextField("2", NUMBEROFCOLUMNS);
         fieldB = new JTextField("3", NUMBEROFCOLUMNS);
         fieldC = new JTextField("-2", NUMBEROFCOLUMNS);
-        
 //        fieldA = new JTextField("1", NUMBEROFCOLUMNS);
 //        fieldB = new JTextField("5", NUMBEROFCOLUMNS);
 //        fieldC = new JTextField("6", NUMBEROFCOLUMNS);
-        
         JPanel panel = new JPanel();
 //        panel.setBackground(Color.CYAN);
         panel.setLayout(new FlowLayout());

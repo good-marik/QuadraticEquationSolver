@@ -38,10 +38,11 @@ public class ColorScheme {
             border = Color.BLACK;
             break;
         case 2:
-            background = new Color(238, 238, 238);
+//            background = new Color(238, 238, 238);
+            background = new Color(218, 218, 218);
             coordinateSystem = Color.BLACK;
-            graphic = Color.BLUE;
-            rootCycle = new Color(255, 0, 0, 200); // red, partially transparent
+            graphic = Color.YELLOW;
+            rootCycle = new Color(0, 0, 255, 200); // cyan, partially transparent
             border = Color.BLACK;
             break;
         default:

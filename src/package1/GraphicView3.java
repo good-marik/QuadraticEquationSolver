@@ -9,7 +9,8 @@ import java.net.URISyntaxException;
 import javax.swing.*;
 
 public class GraphicView3 extends JFrame implements IInputView {
-    private final static String FRAMETITLE = "Quadratic Equation Solver, v0.5";
+    private final static String version = "0.6";
+    private final static String FRAMETITLE = "Quadratic Equation Solver, v" + version;
     private NummericPanel nummericPanel;
     private GraphicPanel graphicPanel;
     private IModel model;
@@ -29,7 +30,7 @@ public class GraphicView3 extends JFrame implements IInputView {
         // VIP: "Default Button" for the whole JFrame!!!
         getRootPane().setDefaultButton(nummericPanel.getControlButton());
         getContentPane().add(graphicPanel, BorderLayout.CENTER);
-        setMinimumSize(new Dimension(620, 360)); // (360, 340)
+        setMinimumSize(new Dimension(620, 370)); // (360, 340)
         this.addMenu();
         pack();
         getContentPane().validate();
@@ -77,7 +78,7 @@ public class GraphicView3 extends JFrame implements IInputView {
                 colorScheme.setColorScheme(2);
                 break;
             case "About":
-                String aboutProgram = "<html><center>Quadratic Equation Solver, version 0.5"
+                String aboutProgram = "<html><center>Quadratic Equation Solver, version " + version
                         + "<br>by Marat Khusniyarov<br>2023";
                 JLabel label = new JLabel(aboutProgram);
                 JLabel labelMail = new JLabel("<html><a href=\"\">marat.khusniyarov@gmail.com</a>");
