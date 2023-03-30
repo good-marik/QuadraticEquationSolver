@@ -15,12 +15,13 @@ public class GraphicView3 extends JFrame implements IInputView {
     private GraphicPanel graphicPanel;
     private IModel model;
     private MenuListener menuListener;
+    private ColorSchemeListener colorSchemeListener;
     private ColorScheme colorScheme;
 
     public GraphicView3(IModel model) {
         super(FRAMETITLE);
         this.model = model;
-        colorScheme = new ColorScheme(0);
+        colorScheme = new ColorScheme(ColorSchemesImplemented.DARK);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
         getContentPane().setBackground(Color.orange);
@@ -42,18 +43,22 @@ public class GraphicView3 extends JFrame implements IInputView {
         JMenuBar menuLeiste = new JMenuBar();
         JMenu menuMenu = new JMenu("Menu");
         JMenu menuColorScheme = new JMenu("Color Scheme");
-        JMenuItem itemLightScheme = new JMenuItem("Light Scheme");
-        JMenuItem itemGrayScheme = new JMenuItem("Gray Scheme");
-        JMenuItem itemDarkScheme = new JMenuItem("Dark Scheme");
+        JMenuItem itemLightScheme = new JMenuItem(ColorSchemesImplemented.LIGHT.getName());
+        JMenuItem itemGrayScheme = new JMenuItem(ColorSchemesImplemented.GRAY.getName());
+        JMenuItem itemDarkScheme = new JMenuItem(ColorSchemesImplemented.DARK.getName());
+        JMenuItem itemGirlsScheme = new JMenuItem(ColorSchemesImplemented.GIRLS.getName());
         menuColorScheme.add(itemLightScheme);
         menuColorScheme.add(itemGrayScheme);
         menuColorScheme.add(itemDarkScheme);
+        menuColorScheme.add(itemGirlsScheme);
         JMenuItem itemAbout = new JMenuItem("About");
         JMenuItem itemExit = new JMenuItem("Close Program");
         menuListener = new MenuListener();
-        itemLightScheme.addActionListener(menuListener);
-        itemGrayScheme.addActionListener(menuListener);
-        itemDarkScheme.addActionListener(menuListener);
+        colorSchemeListener = new ColorSchemeListener();
+        itemLightScheme.addActionListener(colorSchemeListener);
+        itemGrayScheme.addActionListener(colorSchemeListener);
+        itemDarkScheme.addActionListener(colorSchemeListener);
+        itemGirlsScheme.addActionListener(colorSchemeListener);
         itemAbout.addActionListener(menuListener);
         itemExit.addActionListener(menuListener);
         menuMenu.add(menuColorScheme);
@@ -63,20 +68,19 @@ public class GraphicView3 extends JFrame implements IInputView {
         setJMenuBar(menuLeiste);
     }
 
+    private class ColorSchemeListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            String s = e.getActionCommand();
+            colorScheme.set(ColorSchemesImplemented.valueOfLabel(s));
+        }
+    }
+
     private class MenuListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             String s = e.getActionCommand();
             switch (s) {
-            case "Dark Scheme":
-                colorScheme.setColorScheme(0);
-                break;
-            case "Light Scheme":
-                colorScheme.setColorScheme(1);
-                break;
-            case "Gray Scheme":
-                colorScheme.setColorScheme(2);
-                break;
             case "About":
                 String aboutProgram = "<html><center>Quadratic Equation Solver, version " + version
                         + "<br>by Marat Khusniyarov<br>2023";

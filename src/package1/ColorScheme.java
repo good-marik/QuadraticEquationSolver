@@ -3,41 +3,41 @@ package package1;
 import java.awt.Color;
 
 public class ColorScheme {
-    private int colorScheme;
+    private ColorSchemesImplemented colorScheme;
     private Color background;
     private Color coordinateSystem;
     private Color graphic;
     private Color rootCycle;
     private Color border;
 
-    public ColorScheme(int i) {
-        colorScheme = i;
-        setColorScheme(colorScheme);
+    public ColorScheme(ColorSchemesImplemented csc) {
+        colorScheme = csc;
+        set(colorScheme);
     }
 
     public ColorScheme() {
-        colorScheme = 0; // default
-        setColorScheme(colorScheme);
+        colorScheme = ColorSchemesImplemented.DARK; // default
+        set(colorScheme);
     }
 
-    public void setColorScheme(int colorScheme) {
+    public void set(ColorSchemesImplemented colorScheme) {
         this.colorScheme = colorScheme;
         switch (this.colorScheme) {
-        case 0:
+        case DARK:
             background = Color.BLACK;
             coordinateSystem = Color.WHITE;
             graphic = Color.CYAN;
             rootCycle = new Color(255, 255, 0, 200); // yellow, partially transparent
             border = Color.WHITE;
             break;
-        case 1:
+        case LIGHT:
             background = Color.WHITE;
             coordinateSystem = Color.BLACK;
             graphic = new Color(0,162,0);
             rootCycle = new Color(255, 0, 0, 200); // red, partially transparent
             border = Color.BLACK;
             break;
-        case 2:
+        case GRAY:
 //            background = new Color(238, 238, 238);
             background = new Color(218, 218, 218);
             coordinateSystem = Color.BLACK;
@@ -46,7 +46,7 @@ public class ColorScheme {
             border = Color.BLACK;
             break;
         default:
-            System.out.println("error");
+            System.out.println("error: unknown color!");
         }
     }
 
