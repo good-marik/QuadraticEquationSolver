@@ -3,24 +3,24 @@ package package1;
 import java.awt.Color;
 
 public class ColorScheme {
-    private ColorSchemesImplemented colorScheme;
+    private ColorSchemes colorScheme;
     private Color background;
     private Color coordinateSystem;
     private Color graphic;
     private Color rootCycle;
     private Color border;
 
-    public ColorScheme(ColorSchemesImplemented csc) {
+    public ColorScheme(ColorSchemes csc) {
         colorScheme = csc;
         set(colorScheme);
     }
 
     public ColorScheme() {
-        colorScheme = ColorSchemesImplemented.DARK; // default
+        colorScheme = ColorSchemes.DARK; // default
         set(colorScheme);
     }
 
-    public void set(ColorSchemesImplemented colorScheme) {
+    public void set(ColorSchemes colorScheme) {
         this.colorScheme = colorScheme;
         switch (this.colorScheme) {
         case DARK:

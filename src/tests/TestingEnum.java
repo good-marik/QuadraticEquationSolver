@@ -1,13 +1,13 @@
 package tests;
 
-import package1.ColorSchemesImplemented;
+import package1.ColorSchemes;
 
 public class TestingEnum {
     public static void main(String[] args) {
 //        String s;
-        ColorSchemesImplemented csc;
+        ColorSchemes csc;
 //        s = "Dark Scheme";
-        csc = ColorSchemesImplemented.valueOfLabel(ColorSchemesImplemented.DARK.getName());
+        csc = ColorSchemes.valueOfLabel(ColorSchemes.DARK.getName());
         
 //        csc = ColorSchemeConstants.DARK;
         switch (csc) {

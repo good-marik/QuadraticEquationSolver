@@ -29,7 +29,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */ 
 
-package package1;
+package tests;
 
 /*
  * AbsoluteLayoutDemo.java requires no other files.

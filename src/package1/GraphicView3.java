@@ -21,20 +21,18 @@ public class GraphicView3 extends JFrame implements IInputView {
     public GraphicView3(IModel model) {
         super(FRAMETITLE);
         this.model = model;
-        colorScheme = new ColorScheme(ColorSchemesImplemented.DARK);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        colorScheme = new ColorScheme(ColorSchemes.DARK);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
-        getContentPane().setBackground(Color.orange);
+        setBackground(Color.orange);
         graphicPanel = new GraphicPanel(this.model, colorScheme);
         nummericPanel = new NummericPanel(this.model, graphicPanel, colorScheme);
-        getContentPane().add(nummericPanel, BorderLayout.WEST);
-        // VIP: "Default Button" for the whole JFrame!!!
-        getRootPane().setDefaultButton(nummericPanel.getControlButton());
-        getContentPane().add(graphicPanel, BorderLayout.CENTER);
-        setMinimumSize(new Dimension(620, 370)); // (360, 340)
-        this.addMenu();
+        add(graphicPanel, BorderLayout.CENTER);
+        add(nummericPanel, BorderLayout.WEST);
+        getRootPane().setDefaultButton(nummericPanel.getControlButton()); // "Default Button" for the whole JFrame!!!
+        addMenu();
         pack();
-        getContentPane().validate();
+        setMinimumSize(new Dimension(620, 370)); // (360, 340)
         setLocationRelativeTo(null);
         setVisible(true);
     }
@@ -43,10 +41,10 @@ public class GraphicView3 extends JFrame implements IInputView {
         JMenuBar menuLeiste = new JMenuBar();
         JMenu menuMenu = new JMenu("Menu");
         JMenu menuColorScheme = new JMenu("Color Scheme");
-        JMenuItem itemLightScheme = new JMenuItem(ColorSchemesImplemented.LIGHT.getName());
-        JMenuItem itemGrayScheme = new JMenuItem(ColorSchemesImplemented.GRAY.getName());
-        JMenuItem itemDarkScheme = new JMenuItem(ColorSchemesImplemented.DARK.getName());
-        JMenuItem itemGirlsScheme = new JMenuItem(ColorSchemesImplemented.GIRLS.getName());
+        JMenuItem itemLightScheme = new JMenuItem(ColorSchemes.LIGHT.getName());
+        JMenuItem itemGrayScheme = new JMenuItem(ColorSchemes.GRAY.getName());
+        JMenuItem itemDarkScheme = new JMenuItem(ColorSchemes.DARK.getName());
+        JMenuItem itemGirlsScheme = new JMenuItem(ColorSchemes.GIRLS.getName());
         menuColorScheme.add(itemLightScheme);
         menuColorScheme.add(itemGrayScheme);
         menuColorScheme.add(itemDarkScheme);
@@ -72,7 +70,7 @@ public class GraphicView3 extends JFrame implements IInputView {
         @Override
         public void actionPerformed(ActionEvent e) {
             String s = e.getActionCommand();
-            colorScheme.set(ColorSchemesImplemented.valueOfLabel(s));
+            colorScheme.set(ColorSchemes.valueOfLabel(s));
         }
     }
 
