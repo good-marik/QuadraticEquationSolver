@@ -45,6 +45,8 @@ public class ColorScheme {
             rootCycle = Color.RED; // cyan, partially transparent
             border = Color.BLACK;
             break;
+        // GIRLS - to be added
+        
         default:
             System.out.println("error: unknown color!");
         }
