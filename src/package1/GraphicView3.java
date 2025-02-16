@@ -9,7 +9,8 @@ import java.net.URISyntaxException;
 import javax.swing.*;
 
 public class GraphicView3 extends JFrame implements IInputView {
-    private final static String version = "0.6";
+	private static final long serialVersionUID = -1849664957614972761L;
+	private final static String version = "0.7";
     private final static String FRAMETITLE = "Quadratic Equation Solver, v" + version;
     private NummericPanel nummericPanel;
     private GraphicPanel graphicPanel;
@@ -44,11 +45,11 @@ public class GraphicView3 extends JFrame implements IInputView {
         JMenuItem itemLightScheme = new JMenuItem(ColorSchemes.LIGHT.getName());
         JMenuItem itemGrayScheme = new JMenuItem(ColorSchemes.GRAY.getName());
         JMenuItem itemDarkScheme = new JMenuItem(ColorSchemes.DARK.getName());
-        JMenuItem itemGirlsScheme = new JMenuItem(ColorSchemes.GIRLS.getName());
+//        JMenuItem itemGirlsScheme = new JMenuItem(ColorSchemes.GIRLS.getName());
         menuColorScheme.add(itemLightScheme);
         menuColorScheme.add(itemGrayScheme);
         menuColorScheme.add(itemDarkScheme);
-        menuColorScheme.add(itemGirlsScheme);
+//        menuColorScheme.add(itemGirlsScheme);
         JMenuItem itemAbout = new JMenuItem("About");
         JMenuItem itemExit = new JMenuItem("Close Program");
         menuListener = new MenuListener();
@@ -56,7 +57,7 @@ public class GraphicView3 extends JFrame implements IInputView {
         itemLightScheme.addActionListener(colorSchemeListener);
         itemGrayScheme.addActionListener(colorSchemeListener);
         itemDarkScheme.addActionListener(colorSchemeListener);
-        itemGirlsScheme.addActionListener(colorSchemeListener);
+//        itemGirlsScheme.addActionListener(colorSchemeListener);
         itemAbout.addActionListener(menuListener);
         itemExit.addActionListener(menuListener);
         menuMenu.add(menuColorScheme);
@@ -81,7 +82,7 @@ public class GraphicView3 extends JFrame implements IInputView {
             switch (s) {
             case "About":
                 String aboutProgram = "<html><center>Quadratic Equation Solver, version " + version
-                        + "<br>by Marat Khusniyarov<br>2023";
+                        + "<br>by Marat Khusniyarov<br>2025";
                 JLabel label = new JLabel(aboutProgram);
                 JLabel labelMail = new JLabel("<html><a href=\"\">marat.khusniyarov@gmail.com</a>");
                 labelMail.addMouseListener(new MouseAdapter() {

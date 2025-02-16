@@ -3,7 +3,7 @@ package package1;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TestQuadEq {
+public class RunSolver {
     public static void main(String[] args) {
         IModel model = new Model();
         IView graphicView = new GraphicView3(model);

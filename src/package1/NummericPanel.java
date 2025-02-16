@@ -7,7 +7,8 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class NummericPanel extends JPanel {
-    private final static int NUMBEROFCOLUMNS = 13;
+	private static final long serialVersionUID = -1991364283374536831L;
+	private final static int NUMBEROFCOLUMNS = 13;
     private final static String ERRORLINE = " -- ";
     private final static Color FIELDCOLOR = new Color(240, 240, 240);
     private JButton buttonSolve;
