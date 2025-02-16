@@ -1,1 +1,1 @@
-Quadratic Equation Solver with a Graphical Panel
+Quadratic Equation Solver with a Graphical Interface
