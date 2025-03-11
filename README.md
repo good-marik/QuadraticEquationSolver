@@ -1,1 +1,1 @@
-Quadratic Equation Solver with a Graphical Interface
+Quadratic equation solver with a GUI
